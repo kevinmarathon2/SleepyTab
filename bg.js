@@ -8,7 +8,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     case "create":
       var alarmName = "Alarm" + mess.tabId;
       tabToBeClosed[alarmName] = { tabId: mess.tabId };
-      chrome.alarms.create(alarmName, { delayInMinutes: mess.time });
+      console.log(mess.time);
+      chrome.alarms.create(alarmName, { delayInMinutes: parseInt(mess.time) });
       console.log(JSON.stringify(tabToBeClosed));
   }
 });
