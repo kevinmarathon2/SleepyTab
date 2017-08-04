@@ -4,6 +4,8 @@ tabToBeClosed = {};
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   var mess = JSON.parse(message);
+  console.log(sender);
+  console.info;
   switch (mess.type) {
     case "create":
       var alarmName = "Alarm" + mess.tabId;
@@ -11,6 +13,31 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       console.log(mess.time);
       chrome.alarms.create(alarmName, { delayInMinutes: parseInt(mess.time) });
       console.log(JSON.stringify(tabToBeClosed));
+      break;
+    case "setup":
+      if (tabToBeClosed[mess.tabId] != null) {
+        var AlarmSet = "AlarmSet";
+        chrome.runtime.sendMessage(JSON.stringify(AlarmSet), () => {});
+      }
+      break;
+    case "closeAll":
+      mess.tabArray.forEach(tab => {
+        var alarmName = "Alarm" + tab.id;
+        tabToBeClosed[alarmName] = { tabId: tab.id };
+        chrome.alarms.create(alarmName, {
+          delayInMinutes: parseInt(mess.time)
+        });
+      });
+      break;
+    case "closeWithSound":
+      mess.tabArray.forEach(tab => {
+        var alarmName = "Alarm" + tab.id;
+        tabToBeClosed[alarmName] = { tabId: tab.id };
+        chrome.alarms.create(alarmName, {
+          delayInMinutes: parseInt(mess.time)
+        });
+      });
+      break;
   }
 });
 
