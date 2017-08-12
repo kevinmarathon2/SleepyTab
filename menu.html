@@ -6,10 +6,10 @@
 
 <body>
     <div class="heading">What Tab do you want to close?</div>
-    <div class="tabSelector">
-        <div class="first">This Tab</div>
-        <div class="middle">All Tabs</div>
-        <div class="last">With Sound</div>
+    <div class="tabSelectorContainer">
+        <div class="first tabSelector selectedTab" selection="tabOnly">This Tab</div>
+        <div class="middle tabSelector" selection="allTabs">All Tabs</div>
+        <div class="last tabSelector" selection="withSound">With Sound</div>
 
     </div>
     <form action="">
@@ -25,6 +25,7 @@
         <div class="minList" time=120> 2 hours</div>
         <div class="minList" time=180> 3 hours</div>
     </div>
+    <div id="status"></div>
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="main.css">

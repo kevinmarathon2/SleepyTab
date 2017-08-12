@@ -10,21 +10,21 @@ body {
 .heading {
   padding: 4px;
 }
-.tabSelector {
+.tabSelectorContainer {
   display: flex;
   font-size: 14px;
 }
-.tabSelector > div {
+.tabSelectorContainer > div {
   cursor: pointer;
 }
-.tabSelector .first {
+.tabSelectorContainer .first {
   border: 1px orange solid;
   border-radius: 10px 0px 0px 10px;
 }
-.tabSelector .middle {
+.tabSelectorContainer .middle {
   border: 1px orange solid;
 }
-.tabSelector .last {
+.tabSelectorContainer .last {
   border: 1px orange solid;
   border-radius: 0px 10px 10px 0px;
 }
@@ -32,4 +32,9 @@ body {
 .timeSelector {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.selectedTab {
+  background-color: orange;
+  color: white;
 }
