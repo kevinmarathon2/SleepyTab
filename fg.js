@@ -12,10 +12,18 @@ function startSetUP() {
       type: "setup",
       tabId: tab[0].id
     };
-    chrome.runtime.sendMessage(JSON.stringify(message), () => {});
+    chrome.runtime.sendMessage(JSON.stringify(message), () => {
+      console.log("setup message send");
+    });
   });
 }
 
+function setUpListeners() {
+  setUpTabListeners();
+  setUpOptionListeners();
+  setUpStarter();
+  startSetUP();
+}
 function setUpOptionListeners() {
   var elems = document.getElementsByClassName("minList");
   for (var elem in elems) {
@@ -26,11 +34,6 @@ function setUpOptionListeners() {
       sendMessage(e.target.attributes.time.value);
     });
   }
-}
-
-function setUpListeners() {
-  setUpTabListeners();
-  setUpOptionListeners();
 }
 
 function setUpTabListeners() {
@@ -118,4 +121,11 @@ function withSound(time) {
 function statusChange(messsage) {
   let statusDiv = document.querySelector("#status");
   statusDiv.innerText = messsage;
+}
+
+function setUpStarter() {
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    console.log("got something back " + message);
+    statusChange(message);
+  });
 }
