@@ -5,18 +5,29 @@
 </head>
 
 <body>
+    <div class="heading">What Tab do you want to close?</div>
+    <div class="tabSelector">
+        <div class="first">This Tab</div>
+        <div class="middle">All Tabs</div>
+        <div class="last">With Sound</div>
+
+    </div>
     <form action="">
         <input type="radio" name="whatTab" value="tabOnly" checked> This Tab<br>
         <input type="radio" name="whatTab" value="allTabs"> All Tabs<br>
         <input type="radio" name="whatTab" value="withSound">Tabs with Sound
     </form>
-    <ul>
-        <li class="minList" time=1> 1 minute</li>
-        <li class="minList" time=20> 20 minutes</li>
-        <li class="minList" time=30> 30 minutes</li>
-        <li class="minList" time=60> 1 hour</li>
-        <li class="minList" time=120> 2 hours</li>
-    </ul>
+    <div class="timeSelector">
+        <div class="minList" time=1> 1 minute</div>
+        <div class="minList" time=20> 20 minutes</div>
+        <div class="minList" time=30> 30 minutes</div>
+        <div class="minList" time=60> 1 hour</div>
+        <div class="minList" time=120> 2 hours</div>
+        <div class="minList" time=180> 3 hours</div>
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
 </body>
 
 </html>

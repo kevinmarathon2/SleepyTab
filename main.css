@@ -1,0 +1,35 @@
+html,
+body {
+  width: 200px;
+  height: 225px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  padding: 2px;
+}
+.heading {
+  padding: 4px;
+}
+.tabSelector {
+  display: flex;
+  font-size: 14px;
+}
+.tabSelector > div {
+  cursor: pointer;
+}
+.tabSelector .first {
+  border: 1px orange solid;
+  border-radius: 10px 0px 0px 10px;
+}
+.tabSelector .middle {
+  border: 1px orange solid;
+}
+.tabSelector .last {
+  border: 1px orange solid;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.timeSelector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
