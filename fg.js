@@ -2,7 +2,6 @@ var SelectedTab = "tabOnly";
 
 document.addEventListener("DOMContentLoaded", function() {
   setUpListeners();
-  statusChange("hello");
 });
 
 function startSetUP() {
@@ -137,12 +136,17 @@ function setUpStarter() {
 function createAlarmButton() {
   var newElem = document.createElement("div");
   newElem.classList.add("AlarmSetStatus");
-  newElem.innerText = "You have an Alarm Set";
+  newElem.innerText = "Alarm Set";
   newElem.addEventListener("mouseenter", function() {
     console.log(this);
+    this.innerText = "Cancel Alarm";
   });
   newElem.addEventListener("mouseout", function() {
-    console.log(this);
+    this.innerText = "Alarm Set";
+  });
+
+  newElem.addEventListener("click", function() {
+    ////TODO Need to implement Alarlm cancel
   });
 
   return newElem;
