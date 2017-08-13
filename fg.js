@@ -2,7 +2,6 @@ var SelectedTab = "tabOnly";
 
 document.addEventListener("DOMContentLoaded", function() {
   setUpListeners();
-  startSetUP();
   statusChange("hello");
 });
 
@@ -81,6 +80,7 @@ function sendMessage(time) {
       withSound(time);
       break;
   }
+  startSetUP();
 }
 
 function tabOnly(time) {
@@ -125,7 +125,25 @@ function statusChange(messsage) {
 
 function setUpStarter() {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log("got something back " + message);
-    statusChange(message);
+    console.log(message);
+    switch (message) {
+      case "AlarmSet":
+        let statusDiv = document.querySelector("#status");
+        statusDiv.replaceChild(createAlarmButton(), statusDiv.firstChild);
+    }
   });
+}
+
+function createAlarmButton() {
+  var newElem = document.createElement("div");
+  newElem.classList.add("AlarmSetStatus");
+  newElem.innerText = "You have an Alarm Set";
+  newElem.addEventListener("mouseenter", function() {
+    console.log(this);
+  });
+  newElem.addEventListener("mouseout", function() {
+    console.log(this);
+  });
+
+  return newElem;
 }

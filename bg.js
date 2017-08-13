@@ -15,14 +15,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       console.log(JSON.stringify(tabToBeClosed));
       break;
     case "setup":
-      console.log("got a setup message");
-      console.log(tabToBeClosed);
-      console.log(mess.tabId);
-      console.log(tabToBeClosed["Alarm" + mess.tabId]);
       if (tabToBeClosed["Alarm" + mess.tabId] != null) {
         var AlarmSet = "AlarmSet";
         console.log("alarm for this tab has been set");
-        chrome.runtime.sendMessage(JSON.stringify(AlarmSet), () => {});
+        chrome.runtime.sendMessage(AlarmSet, () => {});
       }
       break;
     case "closeAll":
