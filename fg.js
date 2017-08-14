@@ -139,7 +139,7 @@ function createAlarmButton() {
   newElem.innerText = "Alarm Set";
   newElem.addEventListener("mouseenter", function() {
     console.log(this);
-    this.innerText = "Cancel Alarm";
+    this.innerText = "Cancel Alarm?";
   });
   newElem.addEventListener("mouseout", function() {
     this.innerText = "Alarm Set";

@@ -17,6 +17,7 @@ body {
 .tabSelectorContainer > div {
   cursor: pointer;
   padding: 3px;
+  transition: background .4s, color .3s;
 }
 .tabSelectorContainer .first {
   border: 1px orange solid;
