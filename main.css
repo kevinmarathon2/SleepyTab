@@ -38,7 +38,13 @@ body {
   padding: 10px;
   cursor: pointer;
 }
+.minList {
+  transition: font .3s;
+}
 
+.minList:hover {
+  font-size: 16px;
+}
 .selectedTab {
   background-color: orange;
   color: white;
